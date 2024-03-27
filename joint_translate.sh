@@ -40,7 +40,7 @@ python3 scripts/normalize_regex_inference.py $outfname._norm $outfname.norm
 rm -rf $outfname._norm && mv $outfname.norm $outfname._norm
 
 echo "Applying normalization and script conversion"
-input_size=`python scripts/preprocess_translate.py $outfname._norm $outfname.norm $src_lang $src_transliterate false`
+input_size=`python3 scripts/preprocess_translate.py $outfname._norm $outfname.norm $src_lang $src_transliterate false`
 echo "Number of sentences in input: $input_size"
 
 
@@ -51,7 +51,7 @@ spm_encode --model $ckpt_dir/vocab/model.SRC \
     > $outfname._bpe
 
 echo "Adding language tags"
-python scripts/add_tags_translate.py $outfname._bpe $outfname.bpe $src_lang $tgt_lang
+python3 scripts/add_tags_translate.py $outfname._bpe $outfname.bpe $src_lang $tgt_lang
 
 
 echo "Decoding"

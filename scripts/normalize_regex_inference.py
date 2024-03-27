@@ -1,8 +1,9 @@
 from typing import List
-import regex as re
+# import regex as re
+import re
 import sys
-from tqdm import tqdm
-from joblib import Parallel, delayed
+# from tqdm import tqdm
+# from joblib import Parallel, delayed
 from indic_num_map import INDIC_NUM_MAP
 
 
@@ -82,6 +83,7 @@ if __name__ == "__main__":
     with open(src_infname, "r", encoding="utf-8") as src_infile, \
         open(src_outfname, "w", encoding="utf-8") as src_outfile:
         
-        for src_line in tqdm(src_infile):
+        # for src_line in tqdm(src_infile):
+        for src_line in src_infile:
             src_line = normalize(src_line, patterns)
             src_outfile.write(src_line.strip() + "\n")
